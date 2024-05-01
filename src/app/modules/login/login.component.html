@@ -1,0 +1,53 @@
+<div style="width: 100%; display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+    <mat-card style="width: 45%; display: flex; justify-content: center;">
+        <mat-card-content>
+            <div style="display: flex; flex-direction: column;">
+                <h1 style="display: flex; justify-content: center;">Login App</h1>
+                <div>
+                    <form [formGroup]="form" (submit)="save()">
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Email</mat-label>
+                            <input matInput
+                            type="email"
+                                formControlName="email"
+                             >
+                        </mat-form-field>
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Password</mat-label>
+                            <input matInput
+                            type="password"
+                                formControlName="password"
+                             >
+                        </mat-form-field>
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Nome</mat-label>
+                            <input matInput
+                                formControlName="name"
+                             >
+                        </mat-form-field>
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Birthday</mat-label>
+                            <input matInput
+                                [matDatepicker]="picker"
+                                formControlName="birthday"
+                             >
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <button mat-flat-button color="primary" type="submit">Basic</button>
+                    </form>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <div style="padding-top: 4rem;">
+        <mat-card>
+        <mat-card-content>
+            <div *ngFor="let user of listUser">
+                <h2>{{user.name}}</h2>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    </div>
+    
+</div>
